@@ -39,6 +39,7 @@ namespace Eshop.Domain.Orders
             }
 
             CheckRule(new OrderMustHaveAtLeastOneProductRule(orderProducts));
+            CheckRule(new OrderSumOfProductsCannotExceed1500(orderProducts));
 
             return new Order(customerId, orderProducts);
         }

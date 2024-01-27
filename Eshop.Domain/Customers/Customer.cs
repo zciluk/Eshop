@@ -1,5 +1,6 @@
 ﻿using System.Data.Common;
 using Eshop.Domain.Customers.Events;
+using Eshop.Domain.Orders.Rules;
 using Eshop.Domain.SeedWork;
 
 namespace Eshop.Domain.Customers
@@ -12,6 +13,7 @@ namespace Eshop.Domain.Customers
 
         public static Customer Create(string name)
         {
+            CheckRule(new CustomerNameNotNullAndOnlyLettersRule(name));
             return new(Guid.NewGuid(), name);
         }
 
