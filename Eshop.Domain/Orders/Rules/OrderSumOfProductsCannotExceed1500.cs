@@ -13,9 +13,9 @@ namespace Eshop.Domain.Orders.Rules
 
     public bool IsBroken()
     {
-      return _orderProducts.Sum(product => product.TotalCost) > 1500;
+      return _orderProducts.Sum(product => product.Quantity) > 1500;
     }
 
-    public string Message => "Sum of all products cost cannot exceed 1500 in one order";
+    public string Message => "Sum of all products cannot exceed 1500 in one order";
   }
 }
